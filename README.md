@@ -17,7 +17,7 @@ The lab prioritizes:
 
 ---
 
-## 📌 High-Level Overview
+## High-Level Overview
 
 **Core stack:**
 - Host OS: Ubuntu Server
