@@ -1,5 +1,12 @@
-# 🖥️ Homelab Infrastructure
+# 📊 Services Summary
 
+| Service     | Role | Containerized | Auth Method | Publicly Exposed | Notes |
+|------------|------|---------------|------------|------------------|-------|
+| WireGuard  | VPN Gateway | ✅ | Public/Private Key | ✅ (UDP only) | Primary secure entry point |
+| Pi-hole    | DNS Resolver | ✅ | Web UI Password | ❌ | Used by LAN + VPN clients |
+| Jellyfin   | Media Server | ✅ | User Accounts | ❌ | Private media hosting |
+
+# 🖥️ Homelab Infrastructure
 This repository documents my personal **homelab environment**, used to self-host services, experiment with DevOps concepts, and build reliable, secure infrastructure on commodity hardware.
 
 The lab prioritizes:
