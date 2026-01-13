@@ -1,19 +1,19 @@
-# 📊 Services Summary
+# Services Summary
 
 | Service     | Role | Containerized | Auth Method | Publicly Exposed | Notes |
 |------------|------|---------------|------------|------------------|-------|
-| WireGuard  | VPN Gateway | ✅ | Public/Private Key | ✅ (UDP only) | Primary secure entry point |
-| Pi-hole    | DNS Resolver | ✅ | Web UI Password | ❌ | Used by LAN + VPN clients |
-| Jellyfin   | Media Server | ✅ | User Accounts | ❌ | Private media hosting |
+| WireGuard  | VPN Gateway | Yes | Public/Private Key | UDP | Primary secure entry point |
+| Pi-hole    | DNS Resolver | Yes | Web UI Password | No | Used by LAN + VPN clients |
+| Jellyfin   | Media Server | Yes | User Accounts | No | Private media hosting |
 
-# 🖥️ Homelab Infrastructure
+## Homelab Infrastructure
 This repository documents my personal **homelab environment**, used to self-host services, experiment with DevOps concepts, and build reliable, secure infrastructure on commodity hardware.
 
 The lab prioritizes:
 - Reproducibility (Docker-based deployments)
 - Security (VPN-first access, minimal public exposure)
 - Observability and maintainability
-- Real-world troubleshooting and documentation
+- Maintian real-world troubleshooting and documentation
 
 ---
 
@@ -31,34 +31,22 @@ All services are containerized and run on a single server, with persistent volum
 
 ---
 
-## 🧱 Hardware & Host Environment
+## Hardware & Host Environment
 
 - **Host OS:** Ubuntu Server (LTS)
 - **CPU / RAM:** x86_64 system (details intentionally generalized)
 - **Storage:**
   - OS disk (SSD)
-  - External SSD for persistent service data and media
+  - 2T External SSD for persistent service data and media
 - **Networking:**
   - Static LAN IP
   - Port forwarding only for VPN access
 
 ---
 
-## 🐳 Containerization Strategy
+## Services
 
-All services are deployed using **Docker Compose** with the following principles:
-
-- One service = one compose directory
-- Persistent data stored in named or bind-mounted volumes
-- Secrets stored in `.env` files (never committed)
-- Containers restart automatically on failure
-- No services exposed publicly unless explicitly intended
-
----
-
-## 🔐 Services
-
-### 1️⃣ WireGuard — Secure Remote Access VPN
+### WireGuard — Secure Remote Access VPN
 
 **Purpose:**  
 Provides encrypted remote access into the homelab from external networks.
@@ -81,7 +69,7 @@ Provides encrypted remote access into the homelab from external networks.
 
 ---
 
-### 2️⃣ Pi-hole — Network-wide DNS Filtering
+### Pi-hole — Network-wide DNS Filtering
 
 **Purpose:**  
 Acts as the primary DNS server for both LAN devices and VPN clients.
@@ -105,7 +93,7 @@ Acts as the primary DNS server for both LAN devices and VPN clients.
 
 ---
 
-### 3️⃣ Jellyfin — Self-Hosted Media Server
+### Jellyfin — Self-Hosted Media Server
 
 **Purpose:**  
 Provides a private media streaming platform without third-party services.
@@ -125,8 +113,3 @@ Provides a private media streaming platform without third-party services.
 - User profiles
 - Library scanning
 - Transcoding (when supported by host hardware)
-
----
-
-## 📁 Data & Storage Layout
-
